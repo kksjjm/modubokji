@@ -1,0 +1,763 @@
+[
+  {
+    "id": "basic-livelihood",
+    "name": "기초생활보장 생계급여",
+    "category": "기초생활",
+    "description": "소득인정액이 기준 중위소득 30% 이하인 가구에 생계비를 지원합니다.",
+    "eligibility_rules": [
+      { "field": "income_bracket", "operator": "lte", "value": 1, "required": true }
+    ],
+    "benefits": "가구원 수에 따라 월 생계급여 지급",
+    "estimated_amount": "1인가구 약 71만원, 4인가구 약 183만원 (2024년 기준)",
+    "required_documents": [
+      { "name": "사회보장급여 신청서", "where_to_get": "주민센터", "how_to_get": "방문 수령 또는 복지로 다운로드" },
+      { "name": "소득/재산 확인서류", "where_to_get": "국세청/은행", "how_to_get": "홈택스 발급 또는 은행 방문" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "주민등록증 또는 운전면허증" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 방문 또는 복지로 온라인 신청", "location": "주민센터 또는 복지로(bokjiro.go.kr)", "method": "방문 또는 온라인", "notes": "신분증 지참 필수" },
+      { "step": 2, "description": "소득/재산 조사 (약 30일)", "location": "시군구청", "method": "자동 진행", "notes": "추가 서류 요청 시 제출" },
+      { "step": 3, "description": "급여 결정 통보", "location": "우편/문자", "method": "통지", "notes": "결정 후 매월 20일 지급" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "medical-aid",
+    "name": "의료급여",
+    "category": "의료",
+    "description": "기초생활수급자 및 차상위 계층에 의료비를 지원합니다.",
+    "eligibility_rules": [
+      { "field": "income_bracket", "operator": "lte", "value": 2, "required": true }
+    ],
+    "benefits": "의료비 본인부담금 감면 (1종: 입원 무료, 2종: 입원 10%)",
+    "estimated_amount": "의료비에 따라 상이",
+    "required_documents": [
+      { "name": "의료급여 신청서", "where_to_get": "주민센터", "how_to_get": "방문 수령" },
+      { "name": "소득/재산 확인서류", "where_to_get": "국세청", "how_to_get": "홈택스 발급" },
+      { "name": "진단서 (해당 시)", "where_to_get": "병원", "how_to_get": "담당 의사 발급" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 방문 신청", "location": "주민센터", "method": "방문", "notes": "기초생활보장 신청과 동시 가능" },
+      { "step": 2, "description": "자격 조사", "location": "시군구청", "method": "자동 진행", "notes": "약 30일 소요" },
+      { "step": 3, "description": "의료급여증 발급", "location": "주민센터", "method": "수령", "notes": "의료기관 이용 시 제시" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "housing-benefit",
+    "name": "주거급여",
+    "category": "주거",
+    "description": "소득인정액이 기준 중위소득 48% 이하인 가구에 주거비를 지원합니다.",
+    "eligibility_rules": [
+      { "field": "income_bracket", "operator": "lte", "value": 3, "required": true }
+    ],
+    "benefits": "임차가구: 임차료 지원, 자가가구: 수선유지비 지원",
+    "estimated_amount": "지역/가구원 수에 따라 월 17~52만원",
+    "required_documents": [
+      { "name": "사회보장급여 신청서", "where_to_get": "주민센터", "how_to_get": "방문 수령" },
+      { "name": "임대차계약서 사본", "where_to_get": "본인 소지", "how_to_get": "계약서 복사" },
+      { "name": "통장 사본", "where_to_get": "본인 소지", "how_to_get": "계좌 개설 은행" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 방문 또는 복지로 온라인 신청", "location": "주민센터 또는 복지로", "method": "방문 또는 온라인", "notes": "임대차계약서 필수" },
+      { "step": 2, "description": "소득/재산 및 주택 조사", "location": "시군���청/LH", "method": "자동 진행", "notes": "주택조사원 방문 가능" },
+      { "step": 3, "description": "급여 결정 및 지급", "location": "통장 입금", "method": "계좌이체", "notes": "매월 20일 지급" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "emergency-welfare",
+    "name": "긴급복지지원",
+    "category": "기초생활",
+    "description": "갑작스러운 위기상황(실직, 질병, 화재 등)에 처한 가��에 긴급 생계비를 지원합니다.",
+    "eligibility_rules": [
+      { "field": "life_situations", "operator": "contains", "value": "긴급위기", "required": true }
+    ],
+    "benefits": "생계, 의료, 주거 등 긴급지원 (최대 6개월)",
+    "estimated_amount": "1인 71만원, 4인 183만원 (1회 지급, 연장 가능)",
+    "required_documents": [
+      { "name": "긴급지원 신청서", "where_to_get": "주민센터 또는 129 전화", "how_to_get": "전화 또는 방문" },
+      { "name": "위기상황 증빙서류", "where_to_get": "해당 기관", "how_to_get": "해고통지서, 진단서 등" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "129 전화 또는 주민센터 신고", "location": "전화(129) 또는 주민센터", "method": "전화 또는 방문", "notes": "24시간 접수 가능" },
+      { "step": 2, "description": "현장 확인 (48시간 이내)", "location": "신청 주소지", "method": "담당��� 방문", "notes": "긴급한 경우 선지원 후조사" },
+      { "step": 3, "description": "지원 결정 및 지급", "location": "통장 입금", "method": "계좌이체", "notes": "신속 지급" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "single-parent-support",
+    "name": "한부모가족 지원",
+    "category": "아동가족",
+    "description": "한부모가족에게 아동양육비, 교육비 등을 지원합니다.",
+    "eligibility_rules": [
+      { "field": "household_type", "operator": "eq", "value": "한부모", "required": true },
+      { "field": "income_bracket", "operator": "lte", "value": 4, "required": true }
+    ],
+    "benefits": "아동양육비, 추가 아동양육비, 학용품비, 생활보조금",
+    "estimated_amount": "아동 1인당 월 20만원 + 추가 지원",
+    "required_documents": [
+      { "name": "한부모가족 지원 신청서", "where_to_get": "주민센터", "how_to_get": "방문 수령" },
+      { "name": "가족관계증명서", "where_to_get": "정부24", "how_to_get": "온라인 발급 (gov.kr)" },
+      { "name": "소득/재산 확인서류", "where_to_get": "국세청", "how_to_get": "홈택스 발급" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 방문 신청", "location": "주민센터", "method": "방문", "notes": "가족관계증명서 필수" },
+      { "step": 2, "description": "자격 조사 (약 30일)", "location": "시군구청", "method": "자동 진행", "notes": "" },
+      { "step": 3, "description": "지원 결정 및 지급", "location": "통장 입금", "method": "계좌이체", "notes": "매월 25일 지급" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "disability-pension",
+    "name": "장애인연금",
+    "category": "장애인",
+    "description": "중증장애인에게 매월 연금을 지급합니다.",
+    "eligibility_rules": [
+      { "field": "disabilities", "operator": "contains", "value": "중증장애", "required": true },
+      { "field": "age", "operator": "gte", "value": 18, "required": true },
+      { "field": "income_bracket", "operator": "lte", "value": 5, "required": true }
+    ],
+    "benefits": "기초급여 + 부가급여 매월 지급",
+    "estimated_amount": "기초급여 최대 월 40만원 + 부가급여",
+    "required_documents": [
+      { "name": "장애인연금 신청서", "where_to_get": "주민센터", "how_to_get": "방문 수령" },
+      { "name": "장애인등록증", "where_to_get": "본인 소지", "how_to_get": "기 발급분" },
+      { "name": "소득/재산 확인서류", "where_to_get": "국세청", "how_to_get": "홈택스 발급" },
+      { "name": "통장 사본", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 방문 신청", "location": "주민센터", "method": "방문", "notes": "장애인등록증 지참" },
+      { "step": 2, "description": "소득/재산 조사 + 장애등급 심사", "location": "국민연금공단", "method": "자동 진행", "notes": "약 30~60일" },
+      { "step": 3, "description": "연금 지급", "location": "통장 입금", "method": "계좌이체", "notes": "매월 20일 지급" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "youth-housing",
+    "name": "청년 월세 지원",
+    "category": "청년",
+    "description": "만 19~34세 무주택 청년에게 월세를 지원합니다.",
+    "eligibility_rules": [
+      { "field": "age", "operator": "between", "value": [19, 34], "required": true },
+      { "field": "income_bracket", "operator": "lte", "value": 4, "required": true }
+    ],
+    "benefits": "월 최대 20만원 월세 지원 (최대 12개월)",
+    "estimated_amount": "월 최대 20만원",
+    "required_documents": [
+      { "name": "청년 월세 지원 신청서", "where_to_get": "복지로", "how_to_get": "온라인 다운로드" },
+      { "name": "임대차계약서 사본", "where_to_get": "본인 소지", "how_to_get": "계약서 복사" },
+      { "name": "소득증빙서류", "where_to_get": "국세청", "how_to_get": "홈택스 발급" },
+      { "name": "주민등록등본", "where_to_get": "정부24", "how_to_get": "온라인 발급" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "복지로 온라인 신청", "location": "복지로(bokjiro.go.kr)", "method": "온라인", "notes": "공인인증서 필요" },
+      { "step": 2, "description": "자격 심사 (약 30~45일)", "location": "LH/시군구", "method": "자동 진행", "notes": "" },
+      { "step": 3, "description": "지원 결정 및 월세 지급", "location": "통장 입금", "method": "계좌이체", "notes": "매월 25일 지급" }
+    ],
+    "incompatible_policies": ["youth-job-support"],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "youth-job-support",
+    "name": "청년구직활동지원금",
+    "category": "청년",
+    "description": "미취업 청년에게 구직활동 비용을 지원합니다.",
+    "eligibility_rules": [
+      { "field": "age", "operator": "between", "value": [18, 34], "required": true },
+      { "field": "life_situations", "operator": "contains", "value": "실업", "required": true },
+      { "field": "income_bracket", "operator": "lte", "value": 4, "required": true }
+    ],
+    "benefits": "월 50만원, 최대 6개월 지원",
+    "estimated_amount": "월 50만원 (최대 300만원)",
+    "required_documents": [
+      { "name": "청년구직활동지원금 신청서", "where_to_get": "워크넷", "how_to_get": "온라인(work.go.kr)" },
+      { "name": "졸업(예정)증명서", "where_to_get": "출신학교", "how_to_get": "온라인 또는 방문 발급" },
+      { "name": "소득증빙서류", "where_to_get": "국세청", "how_to_get": "홈택스 발급" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "워크넷 온라인 신청", "location": "워크넷(work.go.kr)", "method": "온라인", "notes": "회원가입 필요" },
+      { "step": 2, "description": "고용센터 상담 및 취업활동계획 수립", "location": "고용센터", "method": "방문 또는 비대면", "notes": "약 2주 소요" },
+      { "step": 3, "description": "매월 구직활동 보고 후 지급", "location": "워크넷", "method": "온라인", "notes": "매월 구직활동 증빙 필요" }
+    ],
+    "incompatible_policies": ["youth-housing"],
+    "deadline": null,
+    "source_url": "https://www.work.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "elderly-basic-pension",
+    "name": "기초연금",
+    "category": "노인",
+    "description": "만 65세 이상 소득 하위 70% 노인에게 연금을 지급합니다.",
+    "eligibility_rules": [
+      { "field": "age", "operator": "gte", "value": 65, "required": true },
+      { "field": "income_bracket", "operator": "lte", "value": 5, "required": true }
+    ],
+    "benefits": "매월 기초연금 지급",
+    "estimated_amount": "단독가구 최대 월 33만원, 부부가구 최대 월 52만원",
+    "required_documents": [
+      { "name": "기초연금 신청서", "where_to_get": "주민센터 또는 국민연금공단", "how_to_get": "방문 수령" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" },
+      { "name": "통장 사본", "where_to_get": "본인 소지", "how_to_get": "" },
+      { "name": "배우자의 금융정보 제공 동의서", "where_to_get": "주민센터", "how_to_get": "배우자 동반 방문" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 또는 국민연금공단 방문 신청", "location": "주민센터 또는 국민연금공단", "method": "방문", "notes": "만 65세 생일이 속한 달의 1개월 전부터 신청 가능" },
+      { "step": 2, "description": "소득/재산 조사", "location": "국민연금공단", "method": "자동 진행", "notes": "약 30~60일" },
+      { "step": 3, "description": "연금 지급", "location": "통장 입금", "method": "계좌이체", "notes": "매월 25일 지급" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://basicpension.mohw.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "child-allowance",
+    "name": "아동수당",
+    "category": "아동가족",
+    "description": "만 8세 미만 아동에게 매월 수당을 지급합니다.",
+    "eligibility_rules": [
+      { "field": "life_situations", "operator": "contains", "value": "영유아양육", "required": true }
+    ],
+    "benefits": "아동 1인당 매월 10만원",
+    "estimated_amount": "월 10만원/아동",
+    "required_documents": [
+      { "name": "아동수당 신청서", "where_to_get": "주민센터 또는 복지로", "how_to_get": "방문 또는 온라인" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 방문 또는 복지로/정부24 온라인 신청", "location": "주민센터 또는 복지로", "method": "방문 또는 온라인", "notes": "출생신고 시 함께 신청 가능" },
+      { "step": 2, "description": "자격 확인 (자동)", "location": "시군구", "method": "자동 진행", "notes": "" },
+      { "step": 3, "description": "수당 지급", "location": "통장 입금", "method": "계좌이체", "notes": "매월 25일 지급" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "education-benefit",
+    "name": "교육급여",
+    "category": "교육",
+    "description": "기준 중위소득 50% 이하 가구의 초중고 학생에게 교육비를 지원합니다.",
+    "eligibility_rules": [
+      { "field": "income_bracket", "operator": "lte", "value": 3, "required": true }
+    ],
+    "benefits": "교육활동지원비, 교과서비, 입학금, 수업료 지원",
+    "estimated_amount": "초등 46만원, 중학 59만원, 고등 65만원 (연간)",
+    "required_documents": [
+      { "name": "교육급여 신청서", "where_to_get": "주민센터", "how_to_get": "방문 수령" },
+      { "name": "재학증명서", "where_to_get": "학교", "how_to_get": "학교 행정실 발급" },
+      { "name": "소득/재산 확인서류", "where_to_get": "국세청", "how_to_get": "홈택스 발급" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 방문 또는 복지로 신청", "location": "주민센터 또는 복지로", "method": "방문 또는 온라인", "notes": "매년 3월 집중 신청" },
+      { "step": 2, "description": "소득/재산 조사", "location": "시군구청", "method": "자동 진행", "notes": "약 30일" },
+      { "step": 3, "description": "교육급여 지급", "location": "통장 입금", "method": "계좌이체", "notes": "3월 중 일괄 지급" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "disability-allowance",
+    "name": "장애수당",
+    "category": "장애인",
+    "description": "경증장애인에게 매월 수당을 지급합니다.",
+    "eligibility_rules": [
+      { "field": "disabilities", "operator": "contains", "value": "경증장애", "required": true },
+      { "field": "age", "operator": "gte", "value": 18, "required": true },
+      { "field": "income_bracket", "operator": "lte", "value": 2, "required": true }
+    ],
+    "benefits": "매월 장애수당 지급",
+    "estimated_amount": "월 6만원 (차상위 이하)",
+    "required_documents": [
+      { "name": "장애수당 신청서", "where_to_get": "주민센터", "how_to_get": "방문 수령" },
+      { "name": "장애인등록증", "where_to_get": "본인 소지", "how_to_get": "" },
+      { "name": "통장 사본", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 방문 신청", "location": "주민센터", "method": "방문", "notes": "" },
+      { "step": 2, "description": "자격 조사", "location": "시군구청", "method": "자동 진행", "notes": "약 30일" },
+      { "step": 3, "description": "수당 지급", "location": "통장 입금", "method": "계좌이체", "notes": "매월 20일" }
+    ],
+    "incompatible_policies": ["disability-pension"],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "elderly-long-term-care",
+    "name": "노인장기요양보험",
+    "category": "노인",
+    "description": "만 65세 이상 또는 노인성 질환이 있는 분에게 장기요양 서비스를 제공합니다.",
+    "eligibility_rules": [
+      { "field": "age", "operator": "gte", "value": 65, "required": true }
+    ],
+    "benefits": "재가급여(방문요양, 방문목욕 등), 시설급여(요양원 등)",
+    "estimated_amount": "등급에 따라 월 58~182만원 한도",
+    "required_documents": [
+      { "name": "장기요양인정 신청서", "where_to_get": "국민건강보험공단", "how_to_get": "방문 또는 온라인" },
+      { "name": "의사소견서", "where_to_get": "병원", "how_to_get": "담당 의사 발급" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "국민건강보험공단 지사 방문 또는 온라인 신청", "location": "건보공단 지사 또는 longtermcare.or.kr", "method": "방문 또는 온라인", "notes": "" },
+      { "step": 2, "description": "방문조사 (인정조사원 방문)", "location": "신청인 거주지", "method": "방문", "notes": "약 30일 이내" },
+      { "step": 3, "description": "등급판정 및 이용", "location": "등급판정위원회", "method": "심사", "notes": "1~5등급 판정 후 서비스 이용" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.longtermcare.or.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "national-employment-insurance",
+    "name": "실��급여 (구직급여)",
+    "category": "고용",
+    "description": "비자발적 실직자에게 구직급여를 지급합니다.",
+    "eligibility_rules": [
+      { "field": "life_situations", "operator": "contains", "value": "실업", "required": true },
+      { "field": "age", "operator": "gte", "value": 18, "required": true }
+    ],
+    "benefits": "퇴직 전 평균임금의 60% 지급 (소정급여일수에 따라)",
+    "estimated_amount": "1일 약 6.6만원 상한, 최소 120일~최대 270일",
+    "required_documents": [
+      { "name": "구직급여 수급자격 신청서", "where_to_get": "고용센터", "how_to_get": "방문 또는 워���넷(work.go.kr)" },
+      { "name": "이직확인서", "where_to_get": "전 직장", "how_to_get": "회사에서 고용센터로 제출" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "워크넷 구직등록 + 온라인 교육 수강", "location": "워크넷(work.go.kr)", "method": "온라인", "notes": "퇴직 후 가능한 빨리" },
+      { "step": 2, "description": "고용센터 방문 수급자격 신청", "location": "고용센터", "method": "방문", "notes": "퇴직일 다음날부터 12개월 이내" },
+      { "step": 3, "description": "실업인정 (매 1~4주 단위)", "location": "고용센터 또는 온라인", "method": "방문 또는 온라인", "notes": "구직활동 증빙 필요" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.ei.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "maternity-benefit",
+    "name": "출산급여 (출산전후휴가급여)",
+    "category": "아동가족",
+    "description": "출산 전후 휴가를 사용하는 근로자에게 급여를 지급합니다.",
+    "eligibility_rules": [
+      { "field": "life_situations", "operator": "contains", "value": "임신", "required": true }
+    ],
+    "benefits": "출산전후 90일 ���가 중 급여 지급",
+    "estimated_amount": "통상임금 100% (상한 월 210만원, 대규모 기업)",
+    "required_documents": [
+      { "name": "출산전후휴가 급여 신청서", "where_to_get": "고용센터", "how_to_get": "방문 또는 온라인" },
+      { "name": "출산전후휴가 확인서", "where_to_get": "회사", "how_to_get": "인사부서 발급" },
+      { "name": "통장 사본", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "회사에 출산전후휴가 신청", "location": "소속 회사", "method": "사내 절차", "notes": "출산예정일 전 사용 가능" },
+      { "step": 2, "description": "고용보험 급여 신청", "location": "고용센터 또는 ei.go.kr", "method": "온라인 또는 방문", "notes": "휴가 시작 후 1개월 이내" },
+      { "step": 3, "description": "급여 지급", "location": "통장 입금", "method": "계좌이체", "notes": "매월 지급" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.ei.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "childcare-subsidy",
+    "name": "보육료 지원 (어린이집)",
+    "category": "아동가족",
+    "description": "어린이집을 이용하는 영유아 가정에 보육료를 지원합니다.",
+    "eligibility_rules": [
+      { "field": "life_situations", "operator": "contains", "value": "영유아양육", "required": true }
+    ],
+    "benefits": "어린이집 보육료 전액 지원 (만 0~5세)",
+    "estimated_amount": "월 51~51만원 (연령별 상이)",
+    "required_documents": [
+      { "name": "보육료 지원 신청서", "where_to_get": "주민센터 또는 복지로", "how_to_get": "방문 또는 온라인" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "복지로 또는 주민센터에서 신청", "location": "복지로 또는 주민센터", "method": "온라인 또는 방문", "notes": "" },
+      { "step": 2, "description": "국민행복카드 발급", "location": "카드사", "method": "신청", "notes": "카드로 보육료 결제" },
+      { "step": 3, "description": "어린이집 이용 시 카드 결제", "location": "어린이집", "method": "카드 결제", "notes": "매월 자동 지원" }
+    ],
+    "incompatible_policies": ["home-childcare-allowance"],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "home-childcare-allowance",
+    "name": "양육수당 (가정양육)",
+    "category": "아동가족",
+    "description": "어린이집/유치원을 이용하지 않고 가정에서 양육하는 영유아에게 수당을 지급합니다.",
+    "eligibility_rules": [
+      { "field": "life_situations", "operator": "contains", "value": "영유아양육", "required": true }
+    ],
+    "benefits": "가정양육 수당 매월 지급",
+    "estimated_amount": "월 10~20만원 (연령별 상이)",
+    "required_documents": [
+      { "name": "양육수당 신청서", "where_to_get": "주민센터 또는 복지로", "how_to_get": "방문 또는 온라인" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 또는 복지로 온라인 신청", "location": "주민센터 또는 복지로", "method": "방문 또는 온라인", "notes": "" },
+      { "step": 2, "description": "자격 확인", "location": "시군구", "method": "자동 진행", "notes": "" },
+      { "step": 3, "description": "수당 지급", "location": "통장 입금", "method": "계좌이체", "notes": "매월 25일" }
+    ],
+    "incompatible_policies": ["childcare-subsidy"],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "disability-activity-support",
+    "name": "장애인 활동지원",
+    "category": "장애인",
+    "description": "만 6세 이상 65세 미만 장애인에게 활동보조, 방문목욕, 방문간호 서비스를 제공합니다.",
+    "eligibility_rules": [
+      { "field": "disabilities", "operator": "contains", "value": "중증장애", "required": true },
+      { "field": "age", "operator": "between", "value": [6, 64], "required": true }
+    ],
+    "benefits": "활동보조인 서비스, 방문목욕, 방문간호",
+    "estimated_amount": "월 60~480시간 (등급에 따라)",
+    "required_documents": [
+      { "name": "활동지원 신청서", "where_to_get": "주민센터", "how_to_get": "방문 수령" },
+      { "name": "장애인등록증", "where_to_get": "본인 소지", "how_to_get": "" },
+      { "name": "의사소견서 (필요 시)", "where_to_get": "병원", "how_to_get": "담당의 발급" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 방문 신청", "location": "주민센터", "method": "방문", "notes": "" },
+      { "step": 2, "description": "방문조사 및 등급 심의", "location": "국민연금공단", "method": "방문 조사", "notes": "약 45일" },
+      { "step": 3, "description": "활동지원기관 선택 및 서비스 이용", "location": "활동지원기관", "method": "이용", "notes": "" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "multi-child-discount",
+    "name": "다자녀 가구 혜택",
+    "category": "아동가족",
+    "description": "3자녀 이상 다자녀 가구에 다양한 할인 혜택을 제공합니다.",
+    "eligibility_rules": [
+      { "field": "household_type", "operator": "eq", "value": "다자녀", "required": true }
+    ],
+    "benefits": "전기/가스/수도 요금 할인, 국립공원 무료, KTX 할인 등",
+    "estimated_amount": "혜택에 따라 상이 (연간 수십~수백만원)",
+    "required_documents": [
+      { "name": "다자녀 카드 신청서", "where_to_get": "주민센터 또는 지자체", "how_to_get": "방문 또는 온라인" },
+      { "name": "가족관계증명서", "where_to_get": "정부24", "how_to_get": "온라인 발급" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "다자녀 우대카드 신청", "location": "주민센터 또는 카드사", "method": "방문 또는 온라인", "notes": "지자체마다 명칭 상이" },
+      { "step": 2, "description": "카드 발급", "location": "카드사", "method": "배송", "notes": "약 2주 소요" },
+      { "step": 3, "description": "각종 할인 혜택 이용", "location": "해당 기관/매장", "method": "카드 제시", "notes": "" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "national-health-insurance-reduction",
+    "name": "건강보험료 경감",
+    "category": "의료",
+    "description": "저소득층, 장애인, 농어민 등에 건강보험료를 경감합니다.",
+    "eligibility_rules": [
+      { "field": "income_bracket", "operator": "lte", "value": 2, "required": true }
+    ],
+    "benefits": "건강보험료 일부 감면",
+    "estimated_amount": "보험료의 10~50% 감면",
+    "required_documents": [
+      { "name": "경감 신청서", "where_to_get": "국민건강보험공단", "how_to_get": "방문 또는 고객센터(1577-1000)" },
+      { "name": "소득증빙서류", "where_to_get": "국세청", "how_to_get": "홈택스 발급" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "건보공단 고객센터 또는 지사 방문", "location": "건보공단 지사 또는 1577-1000", "method": "전화 또는 방문", "notes": "" },
+      { "step": 2, "description": "소득/자격 확인", "location": "건보공단", "method": "자동 진행", "notes": "" },
+      { "step": 3, "description": "보험료 경감 적용", "location": "자동 적용", "method": "자동", "notes": "다음 달부터 적용" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.nhis.or.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "energy-voucher",
+    "name": "에너지바우처 (냉난방비 지원)",
+    "category": "기초생활",
+    "description": "저소득 취약계층에 냉난방비를 지원합니다.",
+    "eligibility_rules": [
+      { "field": "income_bracket", "operator": "lte", "value": 1, "required": true }
+    ],
+    "benefits": "냉방/난방 에너지 바우처 지급",
+    "estimated_amount": "하절기 약 2만원, 동절기 약 9~15만원",
+    "required_documents": [
+      { "name": "에너지바우처 신청서", "where_to_get": "주민센터", "how_to_get": "방문 수령" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "주민센터 방문 신청", "location": "주민센터", "method": "방문", "notes": "매년 5~6월(하절기), 10~11월(동절기) 신청" },
+      { "step": 2, "description": "자격 확인", "location": "시군구", "method": "자동 진행", "notes": "" },
+      { "step": 3, "description": "바우처(카드) 충전", "location": "국민행복카드", "method": "카드 충전", "notes": "전기/가스/지역난방 결제 가능" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.energyv.or.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "youth-tomorrow-savings",
+    "name": "청년내일저축계좌",
+    "category": "청년",
+    "description": "일하는 저소득 청년이 매월 10만원 저축 시 정부가 추가 적립해주는 자산형성 지원입니다.",
+    "eligibility_rules": [
+      { "field": "age", "operator": "between", "value": [19, 34], "required": true },
+      { "field": "income_bracket", "operator": "lte", "value": 4, "required": true }
+    ],
+    "benefits": "본인 월 10만원 저축 시 정부 월 10~30��원 매칭 적립 (3년)",
+    "estimated_amount": "3년 후 최대 1,440만원 수령",
+    "required_documents": [
+      { "name": "청년내일저축계좌 신청서", "where_to_get": "복지로", "how_to_get": "온라인(bokjiro.go.kr)" },
+      { "name": "소득증빙서류", "where_to_get": "국세청", "how_to_get": "홈택스 발급" },
+      { "name": "재직증명서", "where_to_get": "회사", "how_to_get": "인사부서 발급" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "복지로 온라인 신청 (연 1회 모집)", "location": "복지로(bokjiro.go.kr)", "method": "온라인", "notes": "보통 5~6월 모집" },
+      { "step": 2, "description": "자격 심사 (약 2개월)", "location": "시군구청", "method": "자동 진행", "notes": "" },
+      { "step": 3, "description": "저축계좌 개설 및 매월 저축", "location": "지정 은행", "method": "방문", "notes": "3년간 성실 저축 시 매칭금 수령" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "youth-happiness-housing",
+    "name": "행복주택 (청년)",
+    "category": "청년",
+    "description": "대학생, 사회초년생, 신혼부부에게 시세 60~80%의 공공임대주택을 제공합니다.",
+    "eligibility_rules": [
+      { "field": "age", "operator": "between", "value": [19, 39], "required": true },
+      { "field": "income_bracket", "operator": "lte", "value": 5, "required": true }
+    ],
+    "benefits": "주변 시세 60~80% 수준의 공공임대주택 입주",
+    "estimated_amount": "시세 대비 월 20~40% 절감",
+    "required_documents": [
+      { "name": "행복주택 입주 신청서", "where_to_get": "LH마이홈", "how_to_get": "온라인(myhome.go.kr)" },
+      { "name": "주민등록등본", "where_to_get": "정부24", "how_to_get": "온라인 발급" },
+      { "name": "소득증빙서류", "where_to_get": "국세청", "how_to_get": "홈택스 발급" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "LH마이홈에서 모집공고 확인 및 신청", "location": "LH마이홈(myhome.go.kr)", "method": "온라인", "notes": "지역/단지별 수시 모집" },
+      { "step": 2, "description": "자격 심사 및 추첨", "location": "LH", "method": "자동 진행", "notes": "경��률에 따라 당첨" },
+      { "step": 3, "description": "임대차계약 체결 및 입주", "location": "해당 단지", "method": "방문", "notes": "" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.myhome.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "elderly-job-support",
+    "name": "노인일자리 및 사회활동 지원",
+    "category": "노인",
+    "description": "만 65세 이상 노인에게 일자리 및 사회활동 기회를 제공합니다.",
+    "eligibility_rules": [
+      { "field": "age", "operator": "gte", "value": 65, "required": true }
+    ],
+    "benefits": "공익활동, 사회서비스형, 시장형 등 다양한 일자리",
+    "estimated_amount": "공익활동: 월 27만원 (월 30시간 이상)",
+    "required_documents": [
+      { "name": "노인일자리 참여 신청서", "where_to_get": "수행기관(시니어클럽 등)", "how_to_get": "방문 수령" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "가까운 수행기관(시니어클럽, 대한노인회 등) 방문", "location": "시니어클럽, 노인복지관 등", "method": "방문", "notes": "매년 1~2월 모집" },
+      { "step": 2, "description": "면접 및 배치", "location": "수행기관", "method": "면접", "notes": "" },
+      { "step": 3, "description": "활동 참여 및 급여 수령", "location": "배치 장소", "method": "활동", "notes": "매월 활동비 지급" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "employment-success-package",
+    "name": "취업성공패키지",
+    "category": "고용",
+    "description": "저소득 구직자에게 단계별 취업지원 서비스와 훈련비를 지원합니다.",
+    "eligibility_rules": [
+      { "field": "life_situations", "operator": "contains", "value": "실업", "required": true },
+      { "field": "income_bracket", "operator": "lte", "value": 4, "required": true }
+    ],
+    "benefits": "직업상담, 직업훈련, 취업알선 + 참여수당",
+    "estimated_amount": "참여수당 월 최대 28.4만원 + 훈련비 별도",
+    "required_documents": [
+      { "name": "취업성공패키지 참여 신청서", "where_to_get": "고용센터", "how_to_get": "방문 또는 워크넷" },
+      { "name": "소득증빙서류", "where_to_get": "국세청", "how_to_get": "홈택스 발급" },
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "고용센터 방문 또는 워크넷 신청", "location": "고용센터 또는 워크넷", "method": "방문 또는 온라인", "notes": "" },
+      { "step": 2, "description": "1단계: 진단/경로설정 (약 1~3주)", "location": "고용센터", "method": "상담", "notes": "" },
+      { "step": 3, "description": "2단계: 직업훈련 → 3단계: 취업알선", "location": "훈련기관/고용센터", "method": "참여", "notes": "약 3~12개월" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.work.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "prenatal-checkup-support",
+    "name": "임산부 건강관리 (국민행복카드)",
+    "category": "의료",
+    "description": "임산부에게 임신/출산 관련 의료비를 바우처로 지원합니다.",
+    "eligibility_rules": [
+      { "field": "life_situations", "operator": "contains", "value": "임신", "required": true }
+    ],
+    "benefits": "임신/출산 의료비 바우처 (국민행복카드)",
+    "estimated_amount": "단태아 100만원, 다태아 140만원",
+    "required_documents": [
+      { "name": "임신확인서", "where_to_get": "산부인과", "how_to_get": "담당의 발급" },
+      { "name": "국민행복카드 신청서", "where_to_get": "카드사(BC/삼성/롯데)", "how_to_get": "온라인 또는 카드사 방문" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "산부인과에서 임신확인서 발급", "location": "산부인과", "method": "방문", "notes": "" },
+      { "step": 2, "description": "국민행복카드 신청 (카드사)", "location": "카드사 앱 또는 지점", "method": "온라인 또는 방문", "notes": "카드 발급 약 1~2주" },
+      { "step": 3, "description": "의료기관에서 카드로 결제", "location": "병원/약국", "method": "카드 결제", "notes": "출산 후 2년까지 사용 가능" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.bokjiro.go.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "youth-deposit-interest",
+    "name": "청년도약계좌",
+    "category": "청년",
+    "description": "만 19~34세 청년이 매월 70만원까지 저축 시 정부 기여금을 지원합니다.",
+    "eligibility_rules": [
+      { "field": "age", "operator": "between", "value": [19, 34], "required": true },
+      { "field": "income_bracket", "operator": "lte", "value": 5, "required": true }
+    ],
+    "benefits": "정부 기여금 월 최대 3.3만원 + 비과세 이자",
+    "estimated_amount": "5년 후 약 5,000만원 (납입+이자+기여금)",
+    "required_documents": [
+      { "name": "청년도약계�� 가입 신청", "where_to_get": "은행앱", "how_to_get": "은행 모바일앱에서 신청" },
+      { "name": "소득확인증명서", "where_to_get": "국세청", "how_to_get": "홈택스 발급" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "은행 앱에서 가입 신청", "location": "주요 시중은행 앱", "method": "온라인", "notes": "매월 가입 신청 기간 확인" },
+      { "step": 2, "description": "자격 심사 (약 2~3주)", "location": "서민금융진흥원", "method": "자동 진행", "notes": "" },
+      { "step": 3, "description": "계좌 개설 및 매월 저축", "location": "해당 은행", "method": "자동이체", "notes": "5년간 유지 시 정부 기여금 수령" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.kinfa.or.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "elderly-dementia-care",
+    "name": "치매안심센터 서비스",
+    "category": "노인",
+    "description": "치매 환자와 가족에게 상담, 검진, 돌��� 서비스를 제공합니다.",
+    "eligibility_rules": [
+      { "field": "age", "operator": "gte", "value": 60, "required": true }
+    ],
+    "benefits": "치매 조기검진, 가족 상담, 치매 쉼터, 인지재활 프로그램",
+    "estimated_amount": "무료 (검진 및 대부분의 서비스)",
+    "required_documents": [
+      { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "가까운 치매안심센터 방문 또는 전화", "location": "치매안심센터 (전국 256개소)", "method": "방문 또는 전화(1899-9988)", "notes": "" },
+      { "step": 2, "description": "치매 선별검사 (무료)", "location": "치매안심센터", "method": "방문", "notes": "약 30분 소요" },
+      { "step": 3, "description": "맞춤형 서비스 연계", "location": "치매안심센터", "method": "상담 후 결정", "notes": "필요 시 전문의 연계" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.nid.or.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  },
+  {
+    "id": "work-injury-compensation",
+    "name": "산업재해 보상보험",
+    "category": "고용",
+    "description": "업무상 사유로 부상, 질병, 사망 시 근로자에게 보상을 제공합니다.",
+    "eligibility_rules": [
+      { "field": "age", "operator": "gte", "value": 18, "required": true }
+    ],
+    "benefits": "요양급여, 휴업급여, 장해급여, 유족급여 등",
+    "estimated_amount": "평균임금의 70% (휴업급여 기준)",
+    "required_documents": [
+      { "name": "요양급여 신청서", "where_to_get": "근로복지공단", "how_to_get": "온라인(kcomwel.or.kr) 또는 방문" },
+      { "name": "초진 소견서", "where_to_get": "병원", "how_to_get": "담당의 발급" },
+      { "name": "재해경위서", "where_to_get": "본인 작성", "how_to_get": "사고 경위 상세 기술" }
+    ],
+    "application_steps": [
+      { "step": 1, "description": "산재 발생 시 병원 치료 후 근로복지공단에 신청", "location": "근로복지공단 지사", "method": "방문 또는 온라인", "notes": "사고 후 즉시" },
+      { "step": 2, "description": "공단 조사 및 판정", "location": "근로복지공단", "method": "자동 진행", "notes": "약 14~50일" },
+      { "step": 3, "description": "보상금 지급", "location": "통장 입금", "method": "계좌이체", "notes": "" }
+    ],
+    "incompatible_policies": [],
+    "deadline": null,
+    "source_url": "https://www.kcomwel.or.kr",
+    "last_verified": "2024-03-01",
+    "status": "active"
+  }
+]
