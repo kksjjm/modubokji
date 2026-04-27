@@ -85,7 +85,7 @@ export default function ProfileForm({ initialProfile, onSubmit }: ProfileFormPro
             }`}
           >
             <span className="font-medium">모르겠음</span>
-            <span className="text-sm text-gray-500 ml-2">
+            <span className="text-sm text-gray-700 ml-2">
               (소득 관계없이 모든 복지를 보여줍니다)
             </span>
           </button>
@@ -101,7 +101,7 @@ export default function ProfileForm({ initialProfile, onSubmit }: ProfileFormPro
               }`}
             >
               <span className="font-medium">{bracket.label}</span>
-              <span className="text-sm text-gray-500 ml-2">({bracket.description})</span>
+              <span className="text-sm text-gray-700 ml-2">({bracket.description})</span>
             </button>
           ))}
         </div>

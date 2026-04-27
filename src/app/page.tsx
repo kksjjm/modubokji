@@ -69,7 +69,7 @@ export default function Home() {
         <div className="space-y-6">
           <div className="bg-white rounded-2xl p-6 shadow-sm">
             <h2 className="text-2xl font-bold mb-2">내 정보 입력</h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-800 mb-6">
               기본 정보를 입력하면 받을 수 있는 복지 혜택을 찾아드립니다.
             </p>
             <ProfileForm initialProfile={profile} onSubmit={handleSubmit} />
@@ -90,10 +90,10 @@ export default function Home() {
 
           {results.length === 0 ? (
             <div className="bg-white rounded-2xl p-8 text-center shadow-sm">
-              <p className="text-xl text-gray-500">
+              <p className="text-xl text-gray-700">
                 입력하신 조건에 맞는 복지 혜택을 찾지 못했습니다.
               </p>
-              <p className="text-gray-400 mt-2">
+              <p className="text-gray-600 mt-2">
                 조건을 변경하거나, 주민센터에 직접 문의해 보세요.
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function Home() {
 
               {Object.entries(grouped).map(([category, items]) => (
                 <div key={category} className="space-y-3">
-                  <h3 className="text-xl font-bold text-gray-800">
+                  <h3 className="text-xl font-bold text-gray-900">
                     {CATEGORIES[category] || category}
                   </h3>
                   {items.map((result) => (

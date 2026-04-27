@@ -41,7 +41,7 @@ export default function ConsentModal({ onAccept }: ConsentModalProps) {
             </p>
           </div>
 
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-700">
             개인정보보호법 제15조에 따라 동의를 구합니다.{" "}
             <a href="/privacy" className="text-blue-500 hover:underline" target="_blank">
               개인정보처리방침 전문 보기

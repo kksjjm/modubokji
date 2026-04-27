@@ -23,7 +23,7 @@ export default function PolicyCard({ result }: PolicyCardProps) {
         <div className="flex items-start justify-between gap-2">
           <div>
             <h3 className="text-lg font-bold">{policy.name}</h3>
-            <p className="text-gray-600 mt-1">{policy.description}</p>
+            <p className="text-gray-800 mt-1">{policy.description}</p>
             <p className="text-blue-600 font-medium mt-1">{policy.estimated_amount}</p>
           </div>
           <span className="text-2xl flex-shrink-0" aria-hidden="true">
@@ -42,7 +42,7 @@ export default function PolicyCard({ result }: PolicyCardProps) {
         <div className="border-t p-4 space-y-4">
           <div>
             <h4 className="font-bold text-lg mb-2">혜택 내용</h4>
-            <p className="text-gray-700">{policy.benefits}</p>
+            <p className="text-gray-900">{policy.benefits}</p>
           </div>
 
           <div>
@@ -51,7 +51,7 @@ export default function PolicyCard({ result }: PolicyCardProps) {
               {policy.required_documents.map((doc, i) => (
                 <li key={i} className="bg-gray-50 rounded-lg p-3">
                   <p className="font-medium">{doc.name}</p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-700">
                     발급처: {doc.where_to_get}
                     {doc.how_to_get && ` | 방법: ${doc.how_to_get}`}
                   </p>
@@ -70,7 +70,7 @@ export default function PolicyCard({ result }: PolicyCardProps) {
                   </span>
                   <div>
                     <p className="font-medium">{step.description}</p>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-700">
                       장소: {step.location} | 방법: {step.method}
                     </p>
                     {step.notes && (
