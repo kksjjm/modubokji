@@ -10,7 +10,7 @@ export default function ConsentModal({ onAccept }: ConsentModalProps) {
       <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-xl max-h-[80vh] overflow-y-auto">
         <h2 className="text-xl font-bold mb-4">개인정보 수집 동의</h2>
 
-        <div className="text-sm text-gray-700 space-y-3 mb-6">
+        <div className="text-sm text-black space-y-3 mb-6">
           <p>
             모두복지는 복지 혜택 추천을 위해 아래 정보를 수집합니다.
           </p>
@@ -41,7 +41,7 @@ export default function ConsentModal({ onAccept }: ConsentModalProps) {
             </p>
           </div>
 
-          <p className="text-xs text-gray-700">
+          <p className="text-xs text-black">
             개인정보보호법 제15조에 따라 동의를 구합니다.{" "}
             <a href="/privacy" className="text-blue-500 hover:underline" target="_blank">
               개인정보처리방침 전문 보기
