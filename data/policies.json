@@ -68,7 +68,7 @@
     ],
     "application_steps": [
       { "step": 1, "description": "주민센터 방문 또는 복지로 온라인 신청", "location": "주민센터 또는 복지로", "method": "방문 또는 온라인", "notes": "임대차계약서 필수" },
-      { "step": 2, "description": "소득/재산 및 주택 조사", "location": "시군���청/LH", "method": "자동 진행", "notes": "주택조사원 방문 가능" },
+      { "step": 2, "description": "소득/재산 및 주택 조사", "location": "시군구청/LH", "method": "자동 진행", "notes": "주택조사원 방문 가능" },
       { "step": 3, "description": "급여 결정 및 지급", "location": "통장 입금", "method": "계좌이체", "notes": "매월 20일 지급" }
     ],
     "incompatible_policies": [],
@@ -81,7 +81,7 @@
     "id": "emergency-welfare",
     "name": "긴급복지지원",
     "category": "기초생활",
-    "description": "갑작스러운 위기상황(실직, 질병, 화재 등)에 처한 가��에 긴급 생계비를 지원합니다.",
+    "description": "갑작스러운 위기상황(실직, 질병, 화재 등)에 처한 가구에 긴급 생계비를 지원합니다.",
     "eligibility_rules": [
       { "field": "life_situations", "operator": "contains", "value": "긴급위기", "required": true }
     ],
@@ -93,7 +93,7 @@
     ],
     "application_steps": [
       { "step": 1, "description": "129 전화 또는 주민센터 신고", "location": "전화(129) 또는 주민센터", "method": "전화 또는 방문", "notes": "24시간 접수 가능" },
-      { "step": 2, "description": "현장 확인 (48시간 이내)", "location": "신청 주소지", "method": "담당��� 방문", "notes": "긴급한 경우 선지원 후조사" },
+      { "step": 2, "description": "현장 확인 (48시간 이내)", "location": "신청 주소지", "method": "담당자 방문", "notes": "긴급한 경우 선지원 후조사" },
       { "step": 3, "description": "지원 결정 및 지급", "location": "통장 입금", "method": "계좌이체", "notes": "신속 지급" }
     ],
     "incompatible_policies": [],
@@ -349,7 +349,7 @@
   },
   {
     "id": "national-employment-insurance",
-    "name": "실��급여 (구직급여)",
+    "name": "실업급여 (구직급여)",
     "category": "고용",
     "description": "비자발적 실직자에게 구직급여를 지급합니다.",
     "eligibility_rules": [
@@ -359,7 +359,7 @@
     "benefits": "퇴직 전 평균임금의 60% 지급 (소정급여일수에 따라)",
     "estimated_amount": "1일 약 6.6만원 상한, 최소 120일~최대 270일",
     "required_documents": [
-      { "name": "구직급여 수급자격 신청서", "where_to_get": "고용센터", "how_to_get": "방문 또는 워���넷(work.go.kr)" },
+      { "name": "구직급여 수급자격 신청서", "where_to_get": "고용센터", "how_to_get": "방문 또는 워크넷(work.go.kr)" },
       { "name": "이직확인서", "where_to_get": "전 직장", "how_to_get": "회사에서 고용센터로 제출" },
       { "name": "신분증", "where_to_get": "본인 소지", "how_to_get": "" }
     ],
@@ -382,7 +382,7 @@
     "eligibility_rules": [
       { "field": "life_situations", "operator": "contains", "value": "임신", "required": true }
     ],
-    "benefits": "출산전후 90일 ���가 중 급여 지급",
+    "benefits": "출산전후 90일 휴가 중 급여 지급",
     "estimated_amount": "통상임금 100% (상한 월 210만원, 대규모 기업)",
     "required_documents": [
       { "name": "출산전후휴가 급여 신청서", "where_to_get": "고용센터", "how_to_get": "방문 또는 온라인" },
@@ -562,7 +562,7 @@
       { "field": "age", "operator": "between", "value": [19, 34], "required": true },
       { "field": "income_bracket", "operator": "lte", "value": 4, "required": true }
     ],
-    "benefits": "본인 월 10만원 저축 시 정부 월 10~30��원 매칭 적립 (3년)",
+    "benefits": "본인 월 10만원 저축 시 정부 월 10~30만원 매칭 적립 (3년)",
     "estimated_amount": "3년 후 최대 1,440만원 수령",
     "required_documents": [
       { "name": "청년내일저축계좌 신청서", "where_to_get": "복지로", "how_to_get": "온라인(bokjiro.go.kr)" },
@@ -598,7 +598,7 @@
     ],
     "application_steps": [
       { "step": 1, "description": "LH마이홈에서 모집공고 확인 및 신청", "location": "LH마이홈(myhome.go.kr)", "method": "온라인", "notes": "지역/단지별 수시 모집" },
-      { "step": 2, "description": "자격 심사 및 추첨", "location": "LH", "method": "자동 진행", "notes": "경��률에 따라 당첨" },
+      { "step": 2, "description": "자격 심사 및 추첨", "location": "LH", "method": "자동 진행", "notes": "경쟁률에 따라 당첨" },
       { "step": 3, "description": "임대차계약 체결 및 입주", "location": "해당 단지", "method": "방문", "notes": "" }
     ],
     "incompatible_policies": [],
@@ -696,7 +696,7 @@
     "benefits": "정부 기여금 월 최대 3.3만원 + 비과세 이자",
     "estimated_amount": "5년 후 약 5,000만원 (납입+이자+기여금)",
     "required_documents": [
-      { "name": "청년도약계�� 가입 신청", "where_to_get": "은행앱", "how_to_get": "은행 모바일앱에서 신청" },
+      { "name": "청년도약계좌 가입 신청", "where_to_get": "은행앱", "how_to_get": "은행 모바일앱에서 신청" },
       { "name": "소득확인증명서", "where_to_get": "국세청", "how_to_get": "홈택스 발급" }
     ],
     "application_steps": [
@@ -714,7 +714,7 @@
     "id": "elderly-dementia-care",
     "name": "치매안심센터 서비스",
     "category": "노인",
-    "description": "치매 환자와 가족에게 상담, 검진, 돌��� 서비스를 제공합니다.",
+    "description": "치매 환자와 가족에게 상담, 검진, 돌봄 서비스를 제공합니다.",
     "eligibility_rules": [
       { "field": "age", "operator": "gte", "value": 60, "required": true }
     ],

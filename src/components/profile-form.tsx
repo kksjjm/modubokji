@@ -25,9 +25,27 @@ const REGIONS = [
   "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주",
 ];
 
-const DISABILITIES = [
-  { value: "중증장애", label: "중증장애 (1~3급)" },
-  { value: "경증장애", label: "경증장애 (4~6급)" },
+const DISABILITY_SEVERITY = [
+  { value: "중증장애", label: "중증장애" },
+  { value: "경증장애", label: "경증장애" },
+];
+
+const DISABILITY_TYPES = [
+  { value: "지체장애", label: "지체장애" },
+  { value: "뇌병변장애", label: "뇌병변장애" },
+  { value: "시각장애", label: "시각장애" },
+  { value: "청각장애", label: "청각장애" },
+  { value: "언어장애", label: "언어장애" },
+  { value: "지적장애", label: "지적장애" },
+  { value: "자폐성장애", label: "자폐성장애" },
+  { value: "정신장애", label: "정신장애" },
+  { value: "신장장애", label: "신장장애" },
+  { value: "심장장애", label: "심장장애" },
+  { value: "호흡기장애", label: "호흡기장애" },
+  { value: "간장애", label: "간장애" },
+  { value: "안면장애", label: "안면장애" },
+  { value: "장루요루장애", label: "장루/요루장애" },
+  { value: "뇌전증장애", label: "뇌전증장애" },
 ];
 
 const LIFE_SITUATIONS = [
@@ -146,9 +164,9 @@ export default function ProfileForm({ initialProfile, onSubmit }: ProfileFormPro
       </div>
 
       <div>
-        <label className="block text-lg font-medium mb-2">장애 여부</label>
+        <label className="block text-lg font-medium mb-2">장애 정도</label>
         <div className="space-y-2">
-          {DISABILITIES.map((d) => (
+          {DISABILITY_SEVERITY.map((d) => (
             <label key={d.value} className="flex items-center gap-3 cursor-pointer">
               <input
                 type="checkbox"
@@ -166,6 +184,30 @@ export default function ProfileForm({ initialProfile, onSubmit }: ProfileFormPro
           ))}
         </div>
       </div>
+
+      {profile.disabilities.length > 0 && (
+        <div>
+          <label className="block text-lg font-medium mb-2">장애 유형 (해당하는 것 모두 선택)</label>
+          <div className="grid grid-cols-2 gap-2">
+            {DISABILITY_TYPES.map((d) => (
+              <label key={d.value} className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={profile.disabilities.includes(d.value)}
+                  onChange={(e) => {
+                    const next = e.target.checked
+                      ? [...profile.disabilities, d.value]
+                      : profile.disabilities.filter((v) => v !== d.value);
+                    setProfile({ ...profile, disabilities: next });
+                  }}
+                  className="w-5 h-5 rounded"
+                />
+                <span>{d.label}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div>
         <label className="block text-lg font-medium mb-2">생활 상황</label>
