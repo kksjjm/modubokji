@@ -13,6 +13,8 @@ import {
 } from "@/lib/profile-store";
 import ProfileForm from "@/components/profile-form";
 import PolicyCard from "@/components/policy-card";
+import ProgramsList from "@/components/programs-list";
+import SubscribeForm from "@/components/subscribe-form";
 import Disclaimer from "@/components/disclaimer";
 import ConsentModal from "@/components/consent-modal";
 
@@ -106,6 +108,8 @@ export default function Home() {
                 </p>
               </div>
 
+              <ProgramsList profile={profile} />
+
               {Object.entries(grouped).map(([category, items]) => (
                 <div key={category} className="space-y-3">
                   <h3 className="text-xl font-bold text-black">
@@ -116,6 +120,8 @@ export default function Home() {
                   ))}
                 </div>
               ))}
+
+              <SubscribeForm profile={profile} />
             </>
           )}
         </div>

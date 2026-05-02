@@ -54,3 +54,32 @@ export interface MatchResult {
   reasons: string[];
   incompatible_with_current: boolean;
 }
+
+// 신규 지원사업 (기간 한정 프로그램)
+export interface Program {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  organization: string; // 주관 기관 (예: "서울시", "고용노동부")
+  eligibility_rules: EligibilityRule[];
+  benefits: string;
+  estimated_amount: string;
+  application_url: string;
+  start_date: string;
+  end_date: string;
+  source_url: string;
+  created_at: string;
+}
+
+// 알림 구독자
+export interface Subscriber {
+  id?: string;
+  profile: UserProfile;
+  kakao_channel_user_id: string | null; // 카카오톡 알림용
+  email: string | null; // 이메일 알림용 (대체 수단)
+  notify_kakao: boolean;
+  notify_web: boolean;
+  created_at?: string;
+  last_notified_at?: string;
+}
